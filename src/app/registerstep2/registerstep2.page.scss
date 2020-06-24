@@ -1,0 +1,26 @@
+.code_info {
+  h4 {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+}
+
+.sign_info {
+    margin: 2rem auto;
+  display: flex;
+  ion-input {
+    flex: 1;
+    height: 3.2rem;
+    border: 1px solid #eee;
+  }
+  .timer {
+    width: 10rem;
+    height: 3.2rem;
+    line-height: 3.2rem;
+    text-align: center;
+    border: 1px solid #eee;
+margin-left: 1rem;
+  }
+}

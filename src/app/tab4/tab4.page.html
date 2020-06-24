@@ -1,0 +1,59 @@
+<ion-content>
+
+  <div class="user_top" *ngIf="userinfo">
+    <div class="user_left">
+      <img src="/assets/user.png">
+    </div>
+    <div class="user_right">
+      <h4>Username: {{userinfo.username}}</h4>
+    </div>
+    <ion-button fill="clear" color="light" class="settings" [routerLink]="['/personal']">
+      <ion-icon slot="icon-only" name="settings"></ion-icon>
+    </ion-button>
+  </div>
+
+
+
+  <div class="user_top" *ngIf="!userinfo">
+    <div class="user_left">
+      <img src="/assets/user.png">
+    </div>
+    <div class="user_right">
+      <p [routerLink]="['/login']"> Login / Register <ion-icon slot="start" name="arrow-forward"></ion-icon>
+      </p>
+    </div>
+  </div>
+
+
+  <ion-list class="user_list">
+    <ion-item-divider></ion-item-divider>
+    <ion-item>
+      <ion-icon slot="start" name="paper" color="danger"></ion-icon>
+      <ion-label>Your Orders</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="card" color="success"></ion-icon>
+      <ion-label>Check out</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon slot="start" name="subway" color="warning"></ion-icon>
+      <ion-label>Delivery</ion-label>
+    </ion-item>
+
+    <ion-item-divider></ion-item-divider>
+    <ion-item>
+      <ion-icon slot="start" name="ios-star-outline" color="tertiary"></ion-icon>
+      <ion-label>Favorite</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="people" color="secondary"></ion-icon>
+      <ion-label>Service</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-button (click)="doMessage()">
+    Do massage
+  </ion-button>
+</ion-content>

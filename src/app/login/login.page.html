@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar class="login_toolbar">
+    <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()" color="dark">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon color="dark"></ion-icon>
+      <Span>Service</Span>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="login_logo">
+    <img src="assets/logo.png">
+  </div>
+
+  <ion-list class="login_list">
+    <ion-item>
+      <ion-input placeholder="Phone / E-mail / Username" [(ngModel)]="userinfo.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Password" type="password" [(ngModel)]="userinfo.password"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <span slot="start"> Forget Password </span>
+      <span slot="end" [routerLink]="['/registerstep1']"> Register </span>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="doLogin()" color="danger" expand="block" class="jd_btn">
+    Login
+  </ion-button>
+
+</ion-content>

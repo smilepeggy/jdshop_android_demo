@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Phone Register</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="register_list" lines="none">
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="repassword"></ion-input>
+    </ion-item>
+    <ion-item>
+      <p>Password consists of
+        (4 lowercase letters,
+        2 special characters,
+        2 numbers)
+      </p>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="doRegister()" color="danger" expand="block" class="jd_btn">
+    Done
+  </ion-button>
+</ion-content>

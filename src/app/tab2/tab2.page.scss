@@ -1,0 +1,24 @@
+.cate_content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .cate_left {
+    width: auto;
+    height: 100%;
+    overflow-y: auto;
+    --background: #eee;
+
+    ion-item {
+      font-size: 1.3rem;
+      --background: #eee;
+    }
+    ion-item.active {
+      --background: #fff;
+    }
+  }
+  .cate_right {
+    flex: 1; // all the flexible items be the same length
+    height: 100%;
+    overflow-y: auto;
+  }
+}

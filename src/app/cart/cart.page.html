@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Shopping Cart
+    </ion-title>
+   
+    <ion-buttons slot="end" *ngIf="!isEdit">
+      <ion-button  *ngIf="hasData" (click)="isEdit=!isEdit">
+        Edit
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="isEdit">
+      <ion-button *ngIf="hasData" (click)="isEdit=!isEdit">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="hasData">
+    <dl class="cart_list" *ngFor="let item of list">
+      <!-- Left -->
+      <dt>
+        <ion-checkbox [(ngModel)]="item.checked" (ionChange)="checkboxChange()"></ion-checkbox>
+        <div class="img">
+          <img [src]="config.domain+item.product_pic">
+        </div>
+      </dt>
+
+      <!-- Right -->
+      <dd>
+        <h2 class="cart_title">{{item.product_title}}</h2>
+        <!-- Price -->
+        <div class="cart_info">
+          <!-- price 給global.scss設置 -->
+          <div class="cart_price price">
+            ${{item.product_price}}
+          </div>
+          <!-- Number -->
+          <div class="cart_num">
+            <div class="input_left">
+              -
+            </div>
+            <div class="input_center" (click)="decCount(item)">
+              <input type="text" readonly="readonly" [(ngModel)]="item.product_count" name="num" id="num">
+            </div>
+            <div class="input_right" (click)="incCount(item)">
+              +
+            </div>
+          </div>
+        </div>
+      </dd>
+    </dl>
+  </div>
+
+  <div *ngIf="!hasData">
+    <p class="noCart">Shopping Cart is empty</p>
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="!isEdit">
+  <ion-toolbar *ngIf="hasData">
+    <ion-buttons slot="start" class="checkbox_info" (click)="checkAll()">
+      <ion-checkbox disabled="true" [(ngModel)]="isCheckedAll"></ion-checkbox>
+      <!-- <ion-checkbox [(ngModel)]="isCheckedAll" (ionChange)="checkAll()"></ion-checkbox> -->
+      <span class="selectall">Select All</span>
+      <strong>Total: <span class="price">${{allprice}}</span> </strong>
+    </ion-buttons>
+
+    <ion-buttons slot="end" class="checkbox_btu">
+      <ion-button color="danger" fill="solid" (click)="doCheckout()">
+        Checkout
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+
+<ion-footer *ngIf="isEdit">
+  <ion-toolbar *ngIf="hasData">
+    <ion-buttons slot="start" class="checkbox_info" (click)="checkAll()">
+      <ion-checkbox disabled="true" [(ngModel)]="isCheckedAll"></ion-checkbox>
+      <!-- <ion-checkbox [(ngModel)]="isCheckedAll" (ionChange)="checkAll()"></ion-checkbox> -->
+      <span class="selectall">Select All</span>
+      <strong>Total: <span class="price">${{allprice}}</span> </strong>
+    </ion-buttons>
+
+    <ion-buttons slot="end" class="checkbox_btu">
+      <ion-button color="danger" fill="solid" (click)="doDelete()">
+        Delete
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

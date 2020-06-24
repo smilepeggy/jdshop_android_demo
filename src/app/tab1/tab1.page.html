@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <img src="/assets/qrcode.png">
+    </ion-buttons>
+    <!-- “hammerjs” then can use (tap) -->
+    <ion-searchbar placeholder="Search" animated (tap)="goSearch()"></ion-searchbar>
+
+    <ion-buttons slot="end" class="message">
+      <img src="/assets/message.png">
+      <ion-badge color="danger" class="badge">8</ion-badge>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts" #slide (ionSlideTouchEnd)=SlideTouchEnd()>
+    <ion-slide *ngFor="let item of focuslist">
+      <img [src]="config.domain+item.pic">
+      <!-- config.domain="http://jd.itying.com/"
+      item.pic="public//upload//iPrQ_-r43nGjFyxYXiMZWTM6.jpg"
+      http://jd.itying.com/public//upload//iPrQ_-r43nGjFyxYXiMZWTM6.jpg -->
+    </ion-slide>
+  </ion-slides>
+
+  <div class="h-title">
+    What you like
+  </div>
+  <div class="hotlist">
+    <ul class="clearfix" [ngStyle]="{width: hotlistwidth}" >
+      <li *ngFor="let item of hotlist" [routerLink]="['/pcontent']" [queryParams]="{id:item._id}">
+        <img [src]="config.domain+item.s_pic">
+        <!-- http://jd.itying.com/public//upload//iPrQ_-r43nGjFyxYXiMZWTM6.jpg -->
+        <!-- <p>{{item.title}}</p> -->
+      </li>
+    </ul>
+  </div>
+
+  <div class="h-title">
+    Product List
+  </div>
+  <div class="plist">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6" *ngFor="let item of plist" [routerLink]="['/pcontent']" [queryParams]="{id:item._id}">
+          <div class="plist_inner">
+            <img [src]="config.domain+item.s_pic">
+            <!-- http://jd.itying.com/public//upload//RinsvExKu7Ed-ocs_7W1DxYO.png_200x200.png -->
+            <div class="plist_title">{{item.title}}</div>
+            <p class="price">$ {{item.price}}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+    <ion-item-divider>
+      <ion-label></ion-label>
+    </ion-item-divider>
+
+    <ion-radio-group [(ngModel)]="payType">
+      <ion-item class="item-radio-checked" >
+        <ion-avatar slot="start">
+          <img src="assets/alipay.png">
+        </ion-avatar>
+        <ion-label>Alipay</ion-label>
+
+        <ion-radio slot="end" value="1"></ion-radio>
+        <!-- <ion-radio class="radio-checked"slot="end" value="1"></ion-radio> -->
+        <!-- 用上面這個會一直選中 -->
+        <!-- <ion-radio [ngClass]="{'radio-checked': payType==1} "slot="end" value="1"></ion-radio> -->
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/weixinpay.png">
+        </ion-avatar>
+        <ion-label>Weixinpay</ion-label>
+
+        <ion-radio slot="end" value="2"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-button (click)="dopay()" color="danger" expand="block" class="jd_btn">
+    Pay Now
+  </ion-button>
+</ion-content>

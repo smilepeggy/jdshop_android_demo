@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-back-button defaultHref="/tabs/tab1"></ion-back-button> -->
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search" [(ngModel)]="keywords" animated></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="doSearch()" color="dark">
+        Search
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <!-- 第二的toolbar 當!flag (flase)才顯示 doSearch() true-> false-->
+  <ion-toolbar class="sub_toolbar" *ngIf="!flag">
+    <div class="subheader">
+      <div *ngFor="let item of subHeaderList" (click)="subHeaderChange(item.id)"
+        [ngClass]="{'active': subHeadSelected==item.id}">
+        {{item.title}}
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="search_content" *ngIf="flag">
+    <div class="hotlist">
+      <h3 class="search_title">Hot list</h3>
+      <p>
+        <span>Movie A</span>
+        <span>Movie B</span>
+        <span>Movie C</span>
+        <span>Movie D</span>
+        <span>Movie A</span>
+        <span>Movie B</span>
+        <span>Movie C</span>
+        <span>Movie D</span>
+        <span>Movie A</span>
+        <span>Movie B</span>
+        <span>Movie C</span>
+        <span>Movie D</span>
+      </p>
+    </div>
+
+
+    <div class="history">
+      <div *ngIf="historyList.length>0">
+        <h3 class="search_title">History</h3>
+        <ion-list>
+          <ion-item *ngFor="let item of historyList; let key=index" (press)="removeHistory(key)" (tap)="goSearch(item)">
+            {{item}}
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- div.list_content -->
+  <div class="list_content" *ngIf="!flag">
+    <ion-list>
+      <ion-item *ngFor="let item of productlist">
+        <ion-thumbnail slot="start">
+          <img [src]="config.domain+item.s_pic">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{item.title}}</h3>
+          <p><span class="price">${{item.price}}</span></p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll *ngIf="hasInfiniteData" threshold="100px" (ionInfinite)="getProductlsit($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

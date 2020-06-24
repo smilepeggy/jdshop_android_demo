@@ -1,0 +1,47 @@
+.search_content {
+  .search_title {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem;
+  }
+  .hotlist {
+    p {
+      padding: 0.5rem;
+      span {
+        padding: 0.5rem;
+        margin: 0.5rem 0.5rem;
+        background: #eee;
+        border-radius: 0.5rem;
+        display: inline-block; // 才可以設定寬高，又不換行
+      }
+    }
+  }
+  .histiry {
+    ion-item {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.sub_toolbar {
+  --min-height: 3rem;
+  .subheader {
+    border-top: 1px solid #eee;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+  }
+  div {
+    flex: 1;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}
+.list_content {
+  ion-label {
+    white-space: normal;
+  }
+}
+.active {
+  color: red;
+}

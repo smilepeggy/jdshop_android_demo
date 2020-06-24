@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Phone Register</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="register_input">
+    <input type="text" placeholder="enter your phone number (11 numbers)" [(ngModel)]="tel">
+  </div>
+
+  <ion-button (click)="goRegisterStep2()" color="danger" expand="block" class="jd_btn">
+    Next
+  </ion-button>
+</ion-content>

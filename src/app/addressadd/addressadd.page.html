@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="login_list">
+    <ion-item>
+      <ion-input type="text" placeholder="Name" [(ngModel)]='addressList.name'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Phone" [(ngModel)]='addressList.phone'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea [(ngModel)]='addressList.address' placeholder="Delivery address">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button class="jd_btn"  color="danger" (click)="doAddAddress()">
+    Add
+  </ion-button>
+</ion-content>

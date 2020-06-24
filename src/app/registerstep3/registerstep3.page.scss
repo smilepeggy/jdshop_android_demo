@@ -1,0 +1,20 @@
+.register_list {
+    margin: 2rem 0px;
+  ion-item {
+      --padding-start: 2rem;
+      --padding-end: 1.2rem;
+
+  }
+  ion-input {
+    width: 90%;
+    height: 3.2rem;
+    border: 1px solid #eee;
+    text-indent: 1rem; // 縮排
+    display: block; // text-indent才有效果
+
+  }
+  p {
+      font-size: 1.3rem;
+      color: #666;
+  }
+}

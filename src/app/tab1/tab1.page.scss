@@ -1,0 +1,59 @@
+ion-slide {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  img {
+    max-width: 100%;
+  }
+}
+.h-title {
+  padding: 10px 5px;
+  font-size: 1.4rem;
+  border-bottom: 0.05rem solid #eee;
+  &::before {
+    display: inline-block; // 同行
+    border-left: 3px solid red;
+    width: 4px;
+    height: 14px;
+    content: ""; // 必須加
+    position: relative;
+    top: 2px;
+  }
+}
+.hotlist {
+  width: 100%;
+  height: 8rem;
+  overflow-x: auto; // 如果內容被修剪有滾輪
+  overflow-y: hidden;
+  border-bottom: 0.05rem solid #eee;
+  padding-top: 0.5rem;
+  ul {
+    // width: 82rem; // 夠長才有辦法滾 //寫死就完了
+    li {
+      width: 8rem;
+      height: 8rem;
+      float: left;
+      margin-left: 1rem;
+      img {
+        width: 7rem;
+        height: 7rem;
+      }
+      p {
+        padding: 0.4rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.plist {
+  .plist_inner {
+    padding: 0.5rem;
+    border: 1px solid #eee;
+  }
+  .plist_title {
+    height: 3rem;
+    overflow: hidden;
+    line-height: 1.6rem;
+  }
+}

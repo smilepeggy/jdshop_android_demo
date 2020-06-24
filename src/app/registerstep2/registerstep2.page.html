@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Phone Register</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="code_info">
+    <h4>Verification code</h4>
+    <p class="code_sign_p">Enter code sent to {{tel}} via SMS</p>
+  </div>
+  <div class="sign_info">
+    <ion-input type="text" placeholder="Verification code" [(ngModel)]="code"></ion-input>
+    <div class="timer" *ngIf="!sendCodeBtn">Timer {{num}}</div>
+
+    <div class="timer" *ngIf="sendCodeBtn" (click)='sendCode()'> Resend the Verification code </div>
+  </div>
+  <ion-button (click)="goRegisterStep3()" color="danger" expand="block" class="jd_btn">
+    Next
+  </ion-button>
+</ion-content>
