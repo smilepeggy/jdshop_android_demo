@@ -1,4 +1,4 @@
-# jdshop_android_demo
+# jdshop_android-ios_demo
 Create an Android shopping app. Focus on function and UI design.
 Language: ionic 4, Angular, Typescript, HTML, CSS
 IDE: VSC
