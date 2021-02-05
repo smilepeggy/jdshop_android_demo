@@ -1,5 +1,8 @@
 # jdshop_android_demo
-self practice shop app. Learn it from itying.com
+Create an Android shopping app. Focus on function and UI design.
+Language: ionic 4, Angular, Typescript, HTML, CSS
+IDE: VSC
+back-end server from itying.com
 
 
 ## Pages
